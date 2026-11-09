@@ -1,0 +1,183 @@
+{
+  "initial_stats": {
+    "row_count": 51,
+    "null_counts": {
+      "transaction_id": 0,
+      "customer_id": 0,
+      "amount": 3,
+      "product_category": 3,
+      "region": 3,
+      "timestamp": 1
+    },
+    "timestamp": "2026-11-08T14:05:13.196537"
+  },
+  "events": [
+    {
+      "event": "step",
+      "step": "_set_unique_id",
+      "timestamp": "2026-11-08T14:05:13.196537"
+    },
+    {
+      "event": "step",
+      "step": "_verify_required_column_exists",
+      "timestamp": "2026-11-08T14:05:13.196537"
+    },
+    {
+      "event": "step",
+      "step": "_remove_non_required_columns",
+      "timestamp": "2026-11-08T14:05:13.196537"
+    },
+    {
+      "event": "step",
+      "step": "_remove_unique_id_duplicates",
+      "timestamp": "2026-11-08T14:05:13.196537"
+    },
+    {
+      "timestamp": "2026-11-08T14:05:13.205960",
+      "event": "schema_validation",
+      "phase": "_remove_unique_id_duplicates",
+      "action_type": "drop",
+      "column": "transaction_id",
+      "row_indices": [
+        0,
+        1
+      ],
+      "unique_ids": [
+        "T0001",
+        "T0001"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0001",
+          "customer_id": "C4834",
+          "amount": 102.59,
+          "product_category": "Electronics",
+          "region": "West",
+          "timestamp": "1/3/2024 11:21"
+        },
+        {
+          "transaction_id": "T0001",
+          "customer_id": "C4834",
+          "amount": 102.59,
+          "product_category": "Electronics",
+          "region": "West",
+          "timestamp": "1/3/2024 11:21"
+        }
+      ],
+      "message": "Duplicate unique_id values detected in column 'transaction_id'. All duplicates shown in audit; only later occurrences removed.",
+      "dropped_rows": {
+        "removed_row_indices": [
+          1
+        ],
+        "removed_unique_ids": [
+          "T0001"
+        ],
+        "removed_rows": [
+          {
+            "transaction_id": "T0001",
+            "customer_id": "C4834",
+            "amount": 102.59,
+            "product_category": "Electronics",
+            "region": "West",
+            "timestamp": "1/3/2024 11:21"
+          }
+        ]
+      }
+    },
+    {
+      "event": "step",
+      "step": "begin_validation_phase",
+      "timestamp": "2026-11-08T14:05:13.208961"
+    },
+    {
+      "event": "column_start",
+      "column": "transaction_id",
+      "timestamp": "2026-11-08T14:05:13.208961"
+    },
+    {
+      "event": "step",
+      "step": "_validate_type",
+      "timestamp": "2026-11-08T14:05:13.208961"
+    },
+    {
+      "event": "column_end",
+      "column": "transaction_id",
+      "timestamp": "2026-11-08T14:05:13.209963"
+    },
+    {
+      "event": "column_start",
+      "column": "customer_id",
+      "timestamp": "2026-11-08T14:05:13.209963"
+    },
+    {
+      "event": "step",
+      "step": "_validate_type",
+      "timestamp": "2026-11-08T14:05:13.209963"
+    },
+    {
+      "event": "column_end",
+      "column": "customer_id",
+      "timestamp": "2026-11-08T14:05:13.210962"
+    },
+    {
+      "event": "column_start",
+      "column": "amount",
+      "timestamp": "2026-11-08T14:05:13.210962"
+    },
+    {
+      "event": "step",
+      "step": "_validate_type",
+      "timestamp": "2026-11-08T14:05:13.210962"
+    },
+    {
+      "timestamp": "2026-11-08T14:05:13.212965",
+      "event": "validate_type_numeric",
+      "phase": "_validate_individual_type",
+      "action_type": "coerce",
+      "column": "amount",
+      "row_indices": [
+        7,
+        20,
+        49
+      ],
+      "unique_ids": [
+        "T0007",
+        "T0020",
+        "T0049"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0007",
+          "customer_id": "C8895",
+          "amount": null,
+          "product_category": "electronics",
+          "region": "north",
+          "timestamp": "1/3/2024 11:27"
+        },
+        {
+          "transaction_id": "T0020",
+          "customer_id": "C7572",
+          "amount": null,
+          "product_category": "clothing",
+          "region": "north",
+          "timestamp": "1/3/2024 11:40"
+        },
+        {
+          "transaction_id": "T0049",
+          "customer_id": "C9998",
+          "amount": null,
+          "product_category": "beauty",
+          "region": null,
+          "timestamp": "1/3/2024 12:09"
+        }
+      ],
+      "message": "Type validation found null values in column 'amount'. Expected number - strict mode",
+      "details": {
+        "coerced_to_null_count": 0,
+        "original_nulls_count": 3
+      }
+    }
+  ],
+  "final_stats": {},
+  "summary": {}
+}

@@ -1,0 +1,1202 @@
+{
+  "initial_stats": {
+    "row_count": 51,
+    "null_counts": {
+      "transaction_id": 1,
+      "customer_id": 1,
+      "not_in_schema": 43,
+      "amount": 3,
+      "product_category": 3,
+      "region": 3,
+      "timestamp": 1
+    },
+    "timestamp": "2026-11-08T14:10:36.739253"
+  },
+  "events": [
+    {
+      "event": "step",
+      "step": "_set_unique_id",
+      "timestamp": "2026-11-08T14:10:36.739253"
+    },
+    {
+      "event": "step",
+      "step": "_verify_required_column_exists",
+      "timestamp": "2026-11-08T14:10:36.739253"
+    },
+    {
+      "event": "step",
+      "step": "_remove_non_required_columns",
+      "timestamp": "2026-11-08T14:10:36.739253"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.739253",
+      "event": "schema_validation",
+      "phase": "_remove_non_required_columns",
+      "action_type": "drop",
+      "message": "Non-required columns will be dropped - permissive mode:",
+      "details": {
+        "column count": 1,
+        "non-required-columns:": [
+          "not_in_schema"
+        ]
+      }
+    },
+    {
+      "event": "step",
+      "step": "_remove_unique_id_duplicates",
+      "timestamp": "2026-11-08T14:10:36.739253"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.739253",
+      "event": "schema_validation",
+      "phase": "_remove_unique_id_duplicates",
+      "action_type": "drop",
+      "column": "transaction_id",
+      "row_indices": [
+        0,
+        1
+      ],
+      "unique_ids": [
+        "T0001",
+        "T0001"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0001",
+          "customer_id": "C4834",
+          "amount": 102.59,
+          "product_category": "Electronics",
+          "region": "West",
+          "timestamp": "1/3/2024 11:21"
+        },
+        {
+          "transaction_id": "T0001",
+          "customer_id": "C4834",
+          "amount": 102.59,
+          "product_category": "Electronics",
+          "region": "West",
+          "timestamp": "1/3/2024 11:21"
+        }
+      ],
+      "message": "Duplicate unique_id values detected in column 'transaction_id'. All duplicates shown in audit; only later occurrences removed.",
+      "dropped_rows": {
+        "removed_row_indices": [
+          1
+        ],
+        "removed_unique_ids": [
+          "T0001"
+        ],
+        "removed_rows": [
+          {
+            "transaction_id": "T0001",
+            "customer_id": "C4834",
+            "amount": 102.59,
+            "product_category": "Electronics",
+            "region": "West",
+            "timestamp": "1/3/2024 11:21"
+          }
+        ]
+      }
+    },
+    {
+      "event": "step",
+      "step": "begin_validation_phase",
+      "timestamp": "2026-11-08T14:10:36.753344"
+    },
+    {
+      "event": "column_start",
+      "column": "transaction_id",
+      "timestamp": "2026-11-08T14:10:36.753344"
+    },
+    {
+      "event": "step",
+      "step": "_validate_type",
+      "timestamp": "2026-11-08T14:10:36.753344"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.757341",
+      "event": "validate_type_string",
+      "phase": "_validate_individual_type",
+      "action_type": "coerce",
+      "column": "transaction_id",
+      "row_indices": [
+        4
+      ],
+      "unique_ids": [
+        null
+      ],
+      "rows": [
+        {
+          "transaction_id": null,
+          "customer_id": "C8535",
+          "amount": 117.47,
+          "product_category": null,
+          "region": "east",
+          "timestamp": "1/3/2024 11:24"
+        }
+      ],
+      "message": "Type validation found null values in column 'transaction_id'. Expected string - permissive mode",
+      "details": {
+        "coerced_to_null_count": 0,
+        "original_nulls_count": 1
+      }
+    },
+    {
+      "event": "step",
+      "step": "_validate_nullable_values",
+      "timestamp": "2026-11-08T14:10:36.757341"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.759341",
+      "event": "null_validation",
+      "phase": "_validate_nullable_values",
+      "action_type": "drop",
+      "column": "transaction_id",
+      "row_indices": [
+        4
+      ],
+      "unique_ids": [
+        null
+      ],
+      "rows": [
+        {
+          "transaction_id": null,
+          "customer_id": "C8535",
+          "amount": 117.47,
+          "product_category": null,
+          "region": "east",
+          "timestamp": "1/3/2024 11:24"
+        }
+      ],
+      "message": "Records will be dropped due to null values found in 'transaction_id' and nullable_action = 'drop' - permissive mode",
+      "details": {
+        "invalid_count": 1
+      },
+      "dropped_rows": {
+        "removed_row_indices": [
+          4
+        ],
+        "removed_unique_ids": [
+          null
+        ],
+        "removed_rows": [
+          {
+            "transaction_id": null,
+            "customer_id": "C8535",
+            "amount": 117.47,
+            "product_category": null,
+            "region": "east",
+            "timestamp": "1/3/2024 11:24"
+          }
+        ]
+      }
+    },
+    {
+      "event": "column_end",
+      "column": "transaction_id",
+      "timestamp": "2026-11-08T14:10:36.759341"
+    },
+    {
+      "event": "column_start",
+      "column": "customer_id",
+      "timestamp": "2026-11-08T14:10:36.759341"
+    },
+    {
+      "event": "step",
+      "step": "_validate_type",
+      "timestamp": "2026-11-08T14:10:36.759341"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.762371",
+      "event": "validate_type_string",
+      "phase": "_validate_individual_type",
+      "action_type": "coerce",
+      "column": "customer_id",
+      "row_indices": [
+        12
+      ],
+      "unique_ids": [
+        "T0012"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0012",
+          "customer_id": null,
+          "amount": 43.6,
+          "product_category": "clothing",
+          "region": null,
+          "timestamp": "1/3/2024 11:32"
+        }
+      ],
+      "message": "Type validation found null values in column 'customer_id'. Expected string - permissive mode",
+      "details": {
+        "coerced_to_null_count": 0,
+        "original_nulls_count": 1
+      }
+    },
+    {
+      "event": "step",
+      "step": "_validate_nullable_values",
+      "timestamp": "2026-11-08T14:10:36.762371"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.764341",
+      "event": "null_validation",
+      "phase": "_validate_nullable_values",
+      "action_type": "drop",
+      "column": "customer_id",
+      "row_indices": [
+        12
+      ],
+      "unique_ids": [
+        "T0012"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0012",
+          "customer_id": null,
+          "amount": 43.6,
+          "product_category": "clothing",
+          "region": null,
+          "timestamp": "1/3/2024 11:32"
+        }
+      ],
+      "message": "Records will be dropped due to null values found in 'customer_id' and nullable_action = 'drop' - permissive mode",
+      "details": {
+        "invalid_count": 1
+      },
+      "dropped_rows": {
+        "removed_row_indices": [
+          12
+        ],
+        "removed_unique_ids": [
+          "T0012"
+        ],
+        "removed_rows": [
+          {
+            "transaction_id": "T0012",
+            "customer_id": null,
+            "amount": 43.6,
+            "product_category": "clothing",
+            "region": null,
+            "timestamp": "1/3/2024 11:32"
+          }
+        ]
+      }
+    },
+    {
+      "event": "column_end",
+      "column": "customer_id",
+      "timestamp": "2026-11-08T14:10:36.765626"
+    },
+    {
+      "event": "column_start",
+      "column": "amount",
+      "timestamp": "2026-11-08T14:10:36.765626"
+    },
+    {
+      "event": "step",
+      "step": "_validate_type",
+      "timestamp": "2026-11-08T14:10:36.765626"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.765626",
+      "event": "validate_type_numeric",
+      "phase": "_validate_individual_type",
+      "action_type": "coerce",
+      "column": "amount",
+      "row_indices": [
+        7,
+        20,
+        49
+      ],
+      "unique_ids": [
+        "T0007",
+        "T0020",
+        "T0049"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0007",
+          "customer_id": "C8895",
+          "amount": null,
+          "product_category": "electronics",
+          "region": "north",
+          "timestamp": "1/3/2024 11:27"
+        },
+        {
+          "transaction_id": "T0020",
+          "customer_id": "C7572",
+          "amount": null,
+          "product_category": "clothing",
+          "region": "north",
+          "timestamp": "1/3/2024 11:40"
+        },
+        {
+          "transaction_id": "T0049",
+          "customer_id": "C9998",
+          "amount": null,
+          "product_category": "beauty",
+          "region": null,
+          "timestamp": "1/3/2024 12:09"
+        }
+      ],
+      "message": "Type validation found null values in column 'amount'. Expected number - permissive mode",
+      "details": {
+        "coerced_to_null_count": 0,
+        "original_nulls_count": 3
+      }
+    },
+    {
+      "event": "step",
+      "step": "_validate_numeric_range",
+      "timestamp": "2026-11-08T14:10:36.765626"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.773537",
+      "event": "range_validation",
+      "phase": "_validate_numeric_range",
+      "action_type": "drop",
+      "column": "amount",
+      "row_indices": [
+        18,
+        28
+      ],
+      "unique_ids": [
+        "T0018",
+        "T0028"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0018",
+          "customer_id": "C5039",
+          "amount": -4299.75,
+          "product_category": "sports",
+          "region": "north",
+          "timestamp": "1/3/2024 11:38"
+        },
+        {
+          "transaction_id": "T0028",
+          "customer_id": "C6252",
+          "amount": 500000.0,
+          "product_category": "clothing",
+          "region": "east",
+          "timestamp": "1/3/2024 11:48"
+        }
+      ],
+      "message": "Drop rows with out of range values in 'amount' - permissive mode:",
+      "details": {
+        "invalid_count": 2,
+        "min": 0,
+        "max": 10000
+      },
+      "dropped_rows": {
+        "removed_row_indices": [
+          18,
+          28
+        ],
+        "removed_unique_ids": [
+          "T0018",
+          "T0028"
+        ],
+        "removed_rows": [
+          {
+            "transaction_id": "T0018",
+            "customer_id": "C5039",
+            "amount": -4299.75,
+            "product_category": "sports",
+            "region": "north",
+            "timestamp": "1/3/2024 11:38"
+          },
+          {
+            "transaction_id": "T0028",
+            "customer_id": "C6252",
+            "amount": 500000.0,
+            "product_category": "clothing",
+            "region": "east",
+            "timestamp": "1/3/2024 11:48"
+          }
+        ]
+      }
+    },
+    {
+      "event": "step",
+      "step": "_validate_nullable_values",
+      "timestamp": "2026-11-08T14:10:36.774584"
+    },
+    {
+      "event": "step",
+      "step": "_winsorize",
+      "timestamp": "2026-11-08T14:10:36.774584"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.778539",
+      "event": "winsorization",
+      "phase": "_winsorize",
+      "action_type": "transform",
+      "column": "amount",
+      "row_indices": [
+        24,
+        29,
+        30,
+        37,
+        39,
+        48
+      ],
+      "unique_ids": [
+        "T0024",
+        "T0029",
+        "T0030",
+        "T0037",
+        "T0039",
+        "T0048"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0024",
+          "customer_id": "C5570",
+          "amount": 163.77,
+          "product_category": "beauty",
+          "region": "north",
+          "timestamp": "1/3/2024 11:44"
+        },
+        {
+          "transaction_id": "T0029",
+          "customer_id": "C2229",
+          "amount": 17.05,
+          "product_category": "grocery",
+          "region": "east",
+          "timestamp": "1/3/2024 11:49"
+        },
+        {
+          "transaction_id": "T0030",
+          "customer_id": "C1011",
+          "amount": 15.53,
+          "product_category": null,
+          "region": null,
+          "timestamp": "1/3/2024 11:50"
+        },
+        {
+          "transaction_id": "T0037",
+          "customer_id": "C3147",
+          "amount": 11.94,
+          "product_category": "grocery",
+          "region": "north",
+          "timestamp": "1/3/1900 11:57"
+        },
+        {
+          "transaction_id": "T0039",
+          "customer_id": "C7689",
+          "amount": 175.44,
+          "product_category": "beauty",
+          "region": "north",
+          "timestamp": "1/3/2024 11:59"
+        },
+        {
+          "transaction_id": "T0048",
+          "customer_id": "C5556",
+          "amount": 176.41,
+          "product_category": "beauty",
+          "region": "north",
+          "timestamp": "1/3/2024 12:08"
+        }
+      ],
+      "message": "Winsorizing column 'amount' - permissive mode ",
+      "details": {
+        "old_values": [
+          163.77,
+          17.05,
+          15.53,
+          11.94,
+          175.44,
+          176.41
+        ],
+        "lower_bound": 17.182000000000002,
+        "upper_bound": 163.17600000000002,
+        "winsorized_count": 6
+      }
+    },
+    {
+      "event": "column_end",
+      "column": "amount",
+      "timestamp": "2026-11-08T14:10:36.780538"
+    },
+    {
+      "event": "column_start",
+      "column": "region",
+      "timestamp": "2026-11-08T14:10:36.780538"
+    },
+    {
+      "event": "step",
+      "step": "_validate_type",
+      "timestamp": "2026-11-08T14:10:36.780538"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.782538",
+      "event": "validate_type_category",
+      "phase": "_validate_individual_type",
+      "action_type": "coerce",
+      "column": "region",
+      "row_indices": [
+        30,
+        49
+      ],
+      "unique_ids": [
+        "T0030",
+        "T0049"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0030",
+          "customer_id": "C1011",
+          "amount": 17.182000000000002,
+          "product_category": null,
+          "region": null,
+          "timestamp": "1/3/2024 11:50"
+        },
+        {
+          "transaction_id": "T0049",
+          "customer_id": "C9998",
+          "amount": null,
+          "product_category": "beauty",
+          "region": null,
+          "timestamp": "1/3/2024 12:09"
+        }
+      ],
+      "message": "Type validation found null values in column 'region'. Expected category - permissive mode",
+      "details": {
+        "coerced_to_null_count": 0,
+        "original_nulls_count": 2
+      }
+    },
+    {
+      "event": "step",
+      "step": "_validate_category_values",
+      "timestamp": "2026-11-08T14:10:36.782538"
+    },
+    {
+      "event": "step",
+      "step": "_validate_nullable_values",
+      "timestamp": "2026-11-08T14:10:36.783538"
+    },
+    {
+      "event": "column_end",
+      "column": "region",
+      "timestamp": "2026-11-08T14:10:36.783538"
+    },
+    {
+      "event": "column_start",
+      "column": "product_category",
+      "timestamp": "2026-11-08T14:10:36.783538"
+    },
+    {
+      "event": "step",
+      "step": "_validate_type",
+      "timestamp": "2026-11-08T14:10:36.783538"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.785538",
+      "event": "validate_type_category",
+      "phase": "_validate_individual_type",
+      "action_type": "coerce",
+      "column": "product_category",
+      "row_indices": [
+        30,
+        35
+      ],
+      "unique_ids": [
+        "T0030",
+        "T0035"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0030",
+          "customer_id": "C1011",
+          "amount": 17.182000000000002,
+          "product_category": null,
+          "region": null,
+          "timestamp": "1/3/2024 11:50"
+        },
+        {
+          "transaction_id": "T0035",
+          "customer_id": "C5954",
+          "amount": 129.65,
+          "product_category": null,
+          "region": "south",
+          "timestamp": "1/3/2024 11:55"
+        }
+      ],
+      "message": "Type validation found null values in column 'product_category'. Expected category - permissive mode",
+      "details": {
+        "coerced_to_null_count": 0,
+        "original_nulls_count": 2
+      }
+    },
+    {
+      "event": "step",
+      "step": "_validate_category_values",
+      "timestamp": "2026-11-08T14:10:36.785538"
+    },
+    {
+      "event": "step",
+      "step": "_validate_nullable_values",
+      "timestamp": "2026-11-08T14:10:36.788302"
+    },
+    {
+      "event": "column_end",
+      "column": "product_category",
+      "timestamp": "2026-11-08T14:10:36.788302"
+    },
+    {
+      "event": "column_start",
+      "column": "timestamp",
+      "timestamp": "2026-11-08T14:10:36.788302"
+    },
+    {
+      "event": "step",
+      "step": "_validate_type",
+      "timestamp": "2026-11-08T14:10:36.788302"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.795196",
+      "event": "validate_type_datetime",
+      "phase": "_validate_individual_type",
+      "action_type": "coerce",
+      "column": "timestamp",
+      "row_indices": [
+        43
+      ],
+      "unique_ids": [
+        "T0043"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0043",
+          "customer_id": "C5633",
+          "amount": 40.98,
+          "product_category": "home",
+          "region": "north",
+          "timestamp": null
+        }
+      ],
+      "message": "Type validation found null values in column 'timestamp'. Expected datetime - permissive mode",
+      "details": {
+        "coerced_to_null_count": 0,
+        "original_nulls_count": 1
+      }
+    },
+    {
+      "event": "step",
+      "step": "_validate_datetime",
+      "timestamp": "2026-11-08T14:10:36.795196"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.795196",
+      "event": "datetime validation",
+      "phase": "_validate_datetime_range",
+      "action_type": "drop",
+      "column": "timestamp",
+      "row_indices": [
+        [
+          37
+        ]
+      ],
+      "unique_ids": [
+        "T0037"
+      ],
+      "rows": [
+        [
+          {
+            "transaction_id": "T0037",
+            "customer_id": "C3147",
+            "amount": 17.182000000000002,
+            "product_category": "grocery",
+            "region": "north",
+            "timestamp": "1900-01-03 11:57:00"
+          }
+        ]
+      ],
+      "message": "Drop rows due to datetime range violations in 'timestamp' - permissive mode)",
+      "details": {
+        "invalid_count": 1,
+        "min_date": "2000-01-01",
+        "max_date": "2030-01-01",
+        "rows": [
+          [
+            37
+          ]
+        ]
+      },
+      "dropped_rows": {
+        "removed_row_indices": [
+          [
+            37
+          ]
+        ],
+        "removed_unique_ids": [
+          "T0037"
+        ],
+        "removed_rows": [
+          [
+            {
+              "transaction_id": "T0037",
+              "customer_id": "C3147",
+              "amount": 17.182000000000002,
+              "product_category": "grocery",
+              "region": "north",
+              "timestamp": "1900-01-03 11:57:00"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "event": "step",
+      "step": "_validate_nullable_values",
+      "timestamp": "2026-11-08T14:10:36.803383"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.806382",
+      "event": "null_validation",
+      "phase": "_validate_nullable_values",
+      "action_type": "drop",
+      "column": "timestamp",
+      "row_indices": [
+        43
+      ],
+      "unique_ids": [
+        "T0043"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0043",
+          "customer_id": "C5633",
+          "amount": 40.98,
+          "product_category": "home",
+          "region": "north",
+          "timestamp": null
+        }
+      ],
+      "message": "Records will be dropped due to null values found in 'timestamp' and nullable_action = 'drop' - permissive mode",
+      "details": {
+        "invalid_count": 1
+      },
+      "dropped_rows": {
+        "removed_row_indices": [
+          43
+        ],
+        "removed_unique_ids": [
+          "T0043"
+        ],
+        "removed_rows": [
+          {
+            "transaction_id": "T0043",
+            "customer_id": "C5633",
+            "amount": 40.98,
+            "product_category": "home",
+            "region": "north",
+            "timestamp": null
+          }
+        ]
+      }
+    },
+    {
+      "event": "column_end",
+      "column": "timestamp",
+      "timestamp": "2026-11-08T14:10:36.807381"
+    },
+    {
+      "event": "step",
+      "step": "end_validation_phase",
+      "timestamp": "2026-11-08T14:10:36.807381"
+    },
+    {
+      "event": "step",
+      "step": "_drop_unrecoverable_ml_pairs",
+      "timestamp": "2026-11-08T14:10:36.807381"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.809380",
+      "event": "ml_dependency_violation",
+      "phase": "__drop_unrecoverable_ml_pairs",
+      "action_type": "drop",
+      "row_indices": [
+        30
+      ],
+      "unique_ids": [
+        "T0030"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0030",
+          "customer_id": "C1011",
+          "amount": 17.182000000000002,
+          "product_category": null,
+          "region": null,
+          "timestamp": "2024-01-03T11:50:00"
+        }
+      ],
+      "message": "Dropping rows with unrecoverable ML dependency pairs",
+      "details": {
+        "row_indices": [
+          30
+        ],
+        "ml_dependency_pairs": [
+          [
+            "region",
+            "product_category"
+          ],
+          [
+            "product_category",
+            "region"
+          ]
+        ]
+      },
+      "dropped_rows": {
+        "removed_row_indices": [
+          30
+        ],
+        "removed_unique_ids": [
+          "T0030"
+        ],
+        "removed_rows": [
+          {
+            "transaction_id": "T0030",
+            "customer_id": "C1011",
+            "amount": 17.182000000000002,
+            "product_category": null,
+            "region": null,
+            "timestamp": "2024-01-03T11:50:00"
+          }
+        ]
+      }
+    },
+    {
+      "event": "step",
+      "step": "begin_imputation_phase",
+      "timestamp": "2026-11-08T14:10:36.810589"
+    },
+    {
+      "event": "column_start",
+      "column": "amount",
+      "timestamp": "2026-11-08T14:10:36.810589"
+    },
+    {
+      "event": "step",
+      "step": "_impute_numeric",
+      "timestamp": "2026-11-08T14:10:36.810589"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:36.810589",
+      "event": "simple_imputation",
+      "phase": "_impute_numeric",
+      "action_type": "impute",
+      "column": "amount",
+      "row_indices": [
+        7,
+        20,
+        49
+      ],
+      "unique_ids": [
+        "T0007",
+        "T0020",
+        "T0049"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0007",
+          "customer_id": "C8895",
+          "amount": null,
+          "product_category": "electronics",
+          "region": "north",
+          "timestamp": "2024-01-03T11:27:00"
+        },
+        {
+          "transaction_id": "T0020",
+          "customer_id": "C7572",
+          "amount": null,
+          "product_category": "clothing",
+          "region": "north",
+          "timestamp": "2024-01-03T11:40:00"
+        },
+        {
+          "transaction_id": "T0049",
+          "customer_id": "C9998",
+          "amount": null,
+          "product_category": "beauty",
+          "region": null,
+          "timestamp": "2024-01-03T12:09:00"
+        }
+      ],
+      "message": "Simple imputation applied to 'amount' using strategy 'median' with replacement value 61.515",
+      "details": {
+        "null_count": 3,
+        "strategy": "median",
+        "replacement_value": 61.515
+      }
+    },
+    {
+      "event": "column_end",
+      "column": "amount",
+      "timestamp": "2026-11-08T14:10:36.810589"
+    },
+    {
+      "event": "column_start",
+      "column": "region",
+      "timestamp": "2026-11-08T14:10:36.810589"
+    },
+    {
+      "event": "step",
+      "step": "_impute_ml",
+      "timestamp": "2026-11-08T14:10:36.810589"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:37.332946",
+      "event": "ml_imputation",
+      "phase": "_impute_ml",
+      "action_type": "impute",
+      "column": "region",
+      "row_indices": [
+        49
+      ],
+      "unique_ids": [
+        "T0049"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0049",
+          "customer_id": "C9998",
+          "amount": 61.515,
+          "product_category": "beauty",
+          "region": null,
+          "timestamp": "2024-01-03T12:09:00"
+        }
+      ],
+      "message": "Imputed null values in 'region' using RandomForestClassifier",
+      "details": {
+        "null_count": 1,
+        "predicted_values": [
+          "south"
+        ],
+        "model": "RandomForestClassifier",
+        "features": [
+          "amount",
+          "timestamp",
+          "product_category"
+        ]
+      }
+    },
+    {
+      "event": "column_end",
+      "column": "region",
+      "timestamp": "2026-11-08T14:10:37.332946"
+    },
+    {
+      "event": "column_start",
+      "column": "product_category",
+      "timestamp": "2026-11-08T14:10:37.332946"
+    },
+    {
+      "event": "step",
+      "step": "_impute_ml",
+      "timestamp": "2026-11-08T14:10:37.332946"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:37.812647",
+      "event": "ml_imputation",
+      "phase": "_impute_ml",
+      "action_type": "impute",
+      "column": "product_category",
+      "row_indices": [
+        35
+      ],
+      "unique_ids": [
+        "T0035"
+      ],
+      "rows": [
+        {
+          "transaction_id": "T0035",
+          "customer_id": "C5954",
+          "amount": 129.65,
+          "product_category": null,
+          "region": "south",
+          "timestamp": "2024-01-03T11:55:00"
+        }
+      ],
+      "message": "Imputed null values in 'product_category' using RandomForestClassifier",
+      "details": {
+        "null_count": 1,
+        "predicted_values": [
+          "beauty"
+        ],
+        "model": "RandomForestClassifier",
+        "features": [
+          "amount",
+          "timestamp",
+          "region"
+        ]
+      }
+    },
+    {
+      "event": "column_end",
+      "column": "product_category",
+      "timestamp": "2026-11-08T14:10:37.812647"
+    },
+    {
+      "event": "step",
+      "step": "end_imputation_phase",
+      "timestamp": "2026-11-08T14:10:37.812647"
+    },
+    {
+      "timestamp": "2026-11-08T14:10:37.823201",
+      "event": "compare_dataframes",
+      "phase": "compare_dataframes",
+      "action_type": "report",
+      "comparison": {
+        "dropped_columns": [
+          "not_in_schema"
+        ],
+        "added_columns": [],
+        "row_count_original": 51,
+        "row_count_cleaned": 43,
+        "rows_dropped": 8,
+        "changed_values": {
+          "amount": {
+            "changed_row_indices": [
+              1,
+              4,
+              7,
+              12,
+              18,
+              20,
+              24,
+              28,
+              29,
+              30,
+              37,
+              39,
+              43,
+              48,
+              49
+            ],
+            "original_values": [
+              102.59,
+              117.47,
+              null,
+              43.6,
+              -4299.75,
+              null,
+              163.77,
+              500000.0,
+              17.05,
+              15.53,
+              11.94,
+              175.44,
+              40.98,
+              176.41,
+              null
+            ],
+            "cleaned_values": [
+              null,
+              null,
+              61.515,
+              null,
+              null,
+              61.515,
+              163.17600000000002,
+              null,
+              17.182000000000002,
+              null,
+              null,
+              163.17600000000002,
+              null,
+              163.17600000000002,
+              61.515
+            ],
+            "count_changed": 15
+          },
+          "timestamp": {
+            "changed_row_indices": [
+              1,
+              4,
+              12,
+              18,
+              28,
+              30,
+              37
+            ],
+            "original_values": [
+              "2024-01-03T11:21:00",
+              "2024-01-03T11:24:00",
+              "2024-01-03T11:32:00",
+              "2024-01-03T11:38:00",
+              "2024-01-03T11:48:00",
+              "2024-01-03T11:50:00",
+              "1900-01-03T11:57:00"
+            ],
+            "cleaned_values": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "count_changed": 7
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2026-11-08T14:10:37.823201",
+      "event": "file_manager",
+      "phase": "save_cleaned_dataset",
+      "action_type": "write",
+      "message": "Successfully saved cleaned datafile.",
+      "details": {
+        "path": "../data/clean/",
+        "filename": "synthetic_transactions_2026-11-08T14-10-37.csv",
+        "full_path": "../data/clean/synthetic_transactions_2026-11-08T14-10-37.csv",
+        "row_count": 43,
+        "column_count": 6
+      }
+    }
+  ],
+  "final_stats": {
+    "row_count": 43,
+    "null_counts": {
+      "transaction_id": 0,
+      "customer_id": 0,
+      "amount": 0,
+      "product_category": 0,
+      "region": 0,
+      "timestamp": 0
+    },
+    "timestamp": "2026-11-08T14:10:37.812647"
+  },
+  "summary": {
+    "validation": {
+      "original_nulls": 10,
+      "rows_dropped": 8,
+      "invalid_numerics": 3,
+      "invalid_booleans": 0,
+      "invalid_strings": 2,
+      "invalid_categories": 4,
+      "invalid_datetime": 1,
+      "invalid_datetime_range": 1,
+      "invalid_numeric_range": 2,
+      "values_nulled": 0,
+      "duplicate_records": 1
+    },
+    "transformation": {
+      "winsorized_columns": 1,
+      "winsorized_values": 6
+    },
+    "imputation": {
+      "amount_imputed": 3,
+      "region_imputed": 1,
+      "product_category_imputed": 1
+    }
+  }
+}

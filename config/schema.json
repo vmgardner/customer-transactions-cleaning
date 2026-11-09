@@ -1,0 +1,69 @@
+{
+    "schema": {
+        "unique_id": "transaction_id",
+        "columns": {
+            "transaction_id": {
+                "type": "string",
+                "required": true,
+                "nullable": false,
+                "nullable_action": "drop",
+                "description": "Unique transaction identifier"
+            },
+            "customer_id":{
+                "type": "string",
+                "required": true,
+                "nullable": false,
+                "nullable_action": "drop",
+                "description": "Unique customer identifier"
+            },
+            "amount": {
+                "type": "number",
+                "required": true,
+                "min": 0,
+                "max": 10000,
+                "nullable": true,
+                "nullable_action": "keep",
+                 "impute_simple": {
+                    "enabled": true,
+                    "strategy": "median" },
+                "winsorize": true,
+                "description": "Transaction amount in USD"
+            },
+            "region": {
+                "type": "category",
+                "required": true,
+                "allowed": ["north", "south", "east", "west"],
+                "nullable": true,
+                "nullable_action": "keep",
+                 "impute_ml": {
+                    "enabled": true,
+                    "model": "RandomForestClassifier",
+                    "features": ["amount", "timestamp", "product_category"] },
+                "normalize": true,
+                "description": "Geographic region"
+            },
+            "product_category": {
+                "type": "category",
+                "required": true,
+                "allowed": ["grocery", "home", "electronics", "clothing", "sports", "beauty"],
+                "nullable": true,
+                "nullable_action": "keep",
+                "impute_ml": {
+                    "enabled": true,
+                    "model": "RandomForestClassifier",
+                    "features": ["amount", "timestamp", "region"] },
+                "normalize": true,
+                "description": "category of the sales item"
+            },
+            "timestamp": {  
+                "type": "datetime",
+                "required": true,
+                "min_date": "2000-01-01",
+                "max_date": "2030-01-01",
+                "nullable": false,
+                "nullable_action": "drop",
+                "description": "Transaction timestamp"
+            }
+        }
+    }
+}

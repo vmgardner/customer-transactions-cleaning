@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual Environments
+env/
+venv/
+.ai/
+.ai_env/
+.mambaforge/
+
+# VS Code
+.vscode/
+
+# Data Outputs
+data/clean/
+output.csv
+
+# Audit Outputs
+audit_reports/
+audit_reports/strict_failure/
+
+# Logs
+logs/
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db

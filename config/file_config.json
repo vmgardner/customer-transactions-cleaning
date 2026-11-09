@@ -1,0 +1,20 @@
+{
+    "audit_paths": {
+        "audit_dir": "../audit_reports",
+        "audit_json_filename": "audit_report.json",
+        "audit_pretty_json_filename": "audit_report_pretty.json",
+        "audit_md_filename": "audit_report.md",
+        "summary_filename": "process_summary.md",
+        "strict_failure_audit_path": "../audit_reports/strict_failure",
+        "strict_failure_audit_filename": "strict_failure_audit.json"},
+    "data_paths": {
+        "output_path": "../data/clean/",
+        "output_filename": "synthetic_transactions.csv"},
+    "schema_paths": {
+        "schema_path": "../config",
+        "schema_name": "schema.json"},
+    "config_paths": {
+        "cleaner_config_path": "../config",
+        "cleaner_config_name": "cleaner_config.json"}
+}
+  
