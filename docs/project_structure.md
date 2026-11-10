@@ -65,18 +65,12 @@ Interactive Jupyter notebooks demonstrating the full workflow from raw data to m
 
 **01_cleaning_pipeline_demo.ipynb** — deeper dive demonstration of the cleaning engine
 
-**02_eda_feature_engineering.ipynb** — exploratory analysis and feature construction using cleaned data. (future implementation)
-
-**03_modeling.ipynb** — downstream ML modeling using engineered features (future implementation)
-
 ### data/
 Structured data directories supporting reproducible experiments
 
 **raw/** — unmodified input datasets
 
 **cleaned/** — outputs from the cleaning pipeline
-
-**features/** — engineered features for future modeling
 
 ### docs/
 Project documentation describing architecture, schema definitions, audit design, and workflow behavior

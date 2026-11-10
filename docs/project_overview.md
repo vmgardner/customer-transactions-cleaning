@@ -28,7 +28,7 @@ A configurable, schema‑driven engine that validates, cleans, enriches, and ver
 ***Audit Trail***  
 A structured audit subsystem that records every validation, transformation, imputation, and record‑level action. It produces:
 
-- audit_report.json — full event log [Audit Reports](../audit_reports/)
+- audit_report.json — full event log
 - audit_report_pretty.json - user friendly json
 
 - audit_report.md — human‑readable narrative
@@ -39,7 +39,7 @@ A structured audit subsystem that records every validation, transformation, impu
 Handles all I/O operations, including saving cleaned datasets and audit artifacts. Strict mode produces a dedicated strict‑failure audit file.
 
 ***Configuration System***  
-All behavior is controlled through declarative JSON configuration files:
+Behavior is controlled through declarative JSON configuration files:
 
 - schema.json — column definitions, types, ranges, business rules, imputation settings
 
@@ -189,6 +189,8 @@ Records are dropped when:
 
 - both region and product_category are missing
 
+- schema 'Required' is true and null value in data
+
 - timestamp is null
 
 - duplicate unique_id values exist
@@ -201,19 +203,19 @@ Records are dropped when:
 
 - No cleaned dataset is produced
 
-- A strict‑failure audit file is produced
+- If possible a strict‑failure audit file is produced
 
 - Partial audit events are preserved up to the point of failure
 
 - Critical schema violations raise exceptions immediately
 
 ***Permissive Mode***
-- warnings instead of exceptions
-- coerced to null for nullable_validation processing
+- Warnings instead of exceptions
+- Coerced to null for nullable_validation processing
 
-- non‑critical violations handled according to schema rules
+- Non‑critical violations handled according to schema rules
 
-- partial results allowed
+- Partial results allowed
 
 ## Concise Summary
 A production‑grade, schema‑driven cleaning pipeline for customer‑transaction data featuring:

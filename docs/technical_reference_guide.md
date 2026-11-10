@@ -54,7 +54,7 @@ Schema path:
 ```
 
 ### Name the output file
-The user must provide an output file name and directory path for the cleaned dataset. If the name is not provided the output will be saved with the name currently in the field. If the field is null then the file will be saed as an underscore and timestamp and no extension.
+The user must provide an output file name and directory path for the cleaned dataset. If the name is not provided the output will be saved with the name currently in the field. If the field is null then the file will be saved as an underscore and timestamp and no extension.
 
 ```
   /config/file_config.json

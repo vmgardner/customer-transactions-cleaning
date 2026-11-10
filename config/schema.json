@@ -23,7 +23,7 @@
                 "max": 10000,
                 "nullable": true,
                 "nullable_action": "keep",
-                 "impute_simple": {
+                "impute_simple": {
                     "enabled": true,
                     "strategy": "median" },
                 "winsorize": true,

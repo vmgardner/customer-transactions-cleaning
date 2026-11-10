@@ -13,11 +13,24 @@ The pipeline supports two classes of imputation:
 Both strategies are controlled through the declarative schema (schema.json)
 
 ## Simple Imputation (Numeric Fields)
-Simple imputation is used for numeric columns such as amount.
+Simple imputation is used for numeric columns such as amount. The type of numeric imputation is schema configurable. 
+```
+     "impute_simple": {
+        "enabled": true,
+        "strategy": "median" },
+```
 
 ***Strategy***
 - Median is used as the default numeric imputation method.
 - Median is robust to outliers and works well with skewed retail transaction distributions.
+- Current programming will support the following stategies:
+    - median
+    - mode
+    - mean
+    - zero
+    - min
+    - max
+
 - Numeric winsorization (IQR‑based) is applied before imputation to stabilize extreme values.
 
 ***Behavior***

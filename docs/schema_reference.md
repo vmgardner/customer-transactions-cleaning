@@ -1,8 +1,8 @@
 # Schema Reference  
 Version aligned with current cleaner architecture
 # 1. Overview  
-This schema defines the data structure all rules the cleaner uses to validate, normalize, impute, and audit a dataset.
-The cleaner is fully schema‑driven: every column’s behavior is determined by its schema entry.
+This schema defines the data structure and all rules the cleaner uses to validate, normalize, impute, and audit a dataset.
+The cleaner is fully schema‑driven: every column’s behavior is determined by its schema attributes.
 
 The schema controls:
 
@@ -14,7 +14,7 @@ The schema controls:
 - Allowed values
 - Range constraints
 - Winsorization
-- Audit trail behavior
+- Directive behavior
 - Summary output
 
  Strict vs permissive mode affects how nulls and validation failures are handled.
@@ -31,7 +31,7 @@ The schema controls:
 }
 ```
 ### unique_id:
- A customer driven column whose values uniquely identify each row.
+ A customer provided column name whose values uniquely identify each row.
 
 The unique_id is used extensively throughout the process:
 - audit trail
@@ -72,7 +72,7 @@ Each column has a block describing its type and rules.
 -------------------|-----------|-------------------------------------------|
 ```
 # 4. Simple Numeric Imputation
-Used for numeric columns such as amount.
+Used for numeric columns such as 'amount'.
 
 Schema Format
 
@@ -82,7 +82,7 @@ Schema Format
   "strategy": "median"
 }
 ```
-## Supported Strategies
+## Supported Numeric Strategies
 
  ```
 | Strategy         | Description                               |
