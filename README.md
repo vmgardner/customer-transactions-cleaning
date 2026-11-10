@@ -57,21 +57,6 @@ The cleaning pipeline performs:
 - Schema‑driven numeric imputation (median, mean, mode, etc.)  
 - ML‑based imputation for missing categorical fields (RandomForest)  
 
-Phase 2 (EDA + Feature Engineering) and Phase 3 (Modeling) will follow
-
-
-## Project Status
-This repository currently includes the Phase 1 Data Cleaning Pipeline, consisting of:
-
-- a modular, schema‑driven cleaning engine
-
-- a structured audit trail system
-
-- configuration‑driven file and schema management
-
-- Quickstart notebook demonstrating cleaner usage
-- Cleaning_pipeline_demo notebook to show the end‑to‑end usage
-
 This project demonstrates production‑grade data‑quality engineering patterns suitable for real retail analytics pipelines and provides the complete workflow for transforming raw retail transactions into clean, analysis‑ready datasets.
 
 ## Repository Layout  
@@ -105,6 +90,14 @@ pipeline responds to different values.
 5. Run the Quickstart Notebook  
 The audit trail and cleaned output will reflect your changes.
 
+### Quickstart Demo (GitHub users)
+Open and run:
+- notebooks/00_quickstart.ipynb
+
+### Developer Demo (pipeline walkthrough)
+Open and run:
+- notebooks/01_cleaning_pipeline_demo.ipynb
+
 ## Installation  
 All pipeline execution is performed through the 00_quickstart.ipynb and 01_cleaning_pipeline_demo.ipynb notebooks. These notebooks orchestrate file loading, audit‑trail creation, cleaning, validation, and output generation. No standalone script or CLI entry point is required.
 
@@ -118,15 +111,6 @@ conda activate customer-cleaning
 ```
 jupyter lab
 ```
-
-## Quickstart Demo (GitHub users)
-Open and run:
-- notebooks/00_quickstart.ipynb
-
-## Developer Demo (full pipeline walkthrough)
-Open and run:
-- notebooks/01_cleaning_pipeline_demo.ipynb
-
 ## Using Your Own Datafile
 
 The pipeline is fully configuration‑driven execpt for the intial csv file provided by the user   
@@ -137,15 +121,14 @@ Update:
   /config/schema.json  
 ```  
 
-- modify the schema to reflect the data structure of the new csv file  
+- Modify the schema to reflect the data structure of the new csv file  
   
-- add all your business rules, constraints, ranges, types... to each column 
+- Add all your business rules, constraints, ranges, types... to each column 
   - See schema column details **[Schema Reference](/docs/schema_reference.md#3-column-specification)** for more information  
 
 -  Change the configured output path/filename 
     - See the section **[Name the output file](#name-the-output-file)** for details on configuring the output filename  
 -  Change the pd.read_csv() in the notebook to add path/name to the incoming file
-
 
 Your schema should reflect the following:
 - unique_id:  Unique Identifier column of the dataset - mandatory 
@@ -155,7 +138,7 @@ Your schema should reflect the following:
 - new categorical values
 - new imputation strategies
 - any imputation and feature changes
-- If the dataset has different fields, the schema must be updated accordingly.  
+- If the dataset  different fields, the schema must be updated accordingly.  
 
 ### Name the output file   
 The user must provide an output file name and directory path for the cleaned dataset. If the name is not provided the output will either be saved under the current attribute value or be saved with an underscore timestamp and no extension if missing.

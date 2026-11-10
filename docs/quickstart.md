@@ -50,7 +50,7 @@ This performs:
 Memory usage and row counts are printed for quick comparison  
 
 ## View audit artifacts
-After cleaning, the notebook will display links to all generated audit artifacts:
+After cleaning, run the cell that will create the links to all generated audit artifacts:
 
 - Audit JSON
 - Pretty JSON
@@ -66,7 +66,7 @@ df_clean.to_csv('output.csv', index=False)
 ```
 
 ### Using Your Own Datafile (Plug-and-Play)
-The pipeline is fully configuration‑driven execpt for the intial csv file provided by the user.  Two easy steps to clean a new datafile:  Update the schema and change the name of the output file.
+The pipeline is fully configuration‑driven execpt for the intial csv file provided by the user.  Two easy steps to clean a new datafile:  Update the schema to match the incoming data file and change the name of the output file.
 
 To configure a new dataset for the cleaning process click the link below for step by step instructions
 

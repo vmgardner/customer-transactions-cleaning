@@ -75,16 +75,21 @@ Replace the 'output_filename' and 'output_path' with your own values.
 conda activate customer-cleaning
 jupyter lab
 ```
-Then run the notebook or script:
-```
-cleaner.clean(...)
-```
-The pipeline automatically:
-- loads the new CSV
-- applies the updated schema
-- writes cleaned output
-- generates new audit artifacts
+Then run either 00_quikstart.ipynb or 01_cleaning_pipeline_demo.ipynb notebook:
+
+The pipeline allows you to:
+- loads the new CSV (df)
+- apply the updated schema
+- call the cleaner() passing in the new csv file
+    - cleaner.clean(df)
+- new audit artifacts will be automatically generated
 - timestamps everything to avoid overwriting previous runs
+
+***Strict Failurs***
+A strict failure will cause the program to stop executing immediately. If the run-time process reached a point of audit creation and population the audit_report will be saved to the audit_reports/strict_failure/ directory. The partial audit_report supplements troubleshooting and help to identify the point of failure.
+```
+  ../audit_reports/strick_failure/
+```
 
 
 ### Inspect new audit artifacts
