@@ -37,9 +37,9 @@ Simple imputation is used for numeric columns such as amount. The type of numeri
 - Missing numeric values are replaced with the median of the non‑missing values.
 - This ensures deterministic, reproducible results across runs.
 - The audit trail records:
-- number of missing values
-- median used
-- row indices affected
+    - number of missing values
+    - median used
+    - row indices affected
 
 ## ML Imputation (Categorical Fields)
 ML imputation is used for categorical fields where simple strategies (mode, constant fill) would lose behavioral meaning. This pipeline uses RandomForestClassifier to predict missing categories based on correlated features.

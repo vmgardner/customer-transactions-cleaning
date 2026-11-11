@@ -22,7 +22,7 @@ output.csv
 
 # Audit Outputs
 audit_reports/
-audit_reports/strict_failure/
+audit_reports/strict_failure/p
 
 # Logs
 logs/

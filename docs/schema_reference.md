@@ -1,7 +1,7 @@
 # Schema Reference  
 Version aligned with current cleaner architecture
 # 1. Overview  
-This schema defines the data structure and all rules the cleaner uses to validate, normalize, impute, and audit a dataset.
+This schema defines the data structure and all rules the cleaner uses to validate, winsorize, impute, and audit a dataset.
 The cleaner is fully schema‑driven: every column’s behavior is determined by its schema attributes.
 
 The schema controls:
@@ -189,49 +189,23 @@ Examples
 
 # 9. Allowed Values (Categories)
 Used for categorical columns.
+
+string and category columns are normalized during the cleaning 
+process so only lowercase values are valid in allowed list
+
 ``` 
 "allowed": ["north", "south", "east", "west"]
 ```
 ## Behavior
-- Unknown values are nulled 
+- Unknown values are nulled - to be handled later according to the null_action 
 - Audit event: validate category_values_(col)
+
 # 10. Audit Trail Structure
-Every transformation produces an audit event.
-
-## Event fields
- ```
-| Field            | Description                                                     |
-|------------------|-----------------------------------------------------------------|
-| event            |  Type of event (imputation, validation, schema_validation, etc.) |
-| column           |  Column affected (or null for multi‑column events)               |
-| row_indices      |  List of row indices involved                                    |
-| action_type      |  Type of action taken: drop, impute, validate...                 |
-| unique_ids       |  Values of the unique ID column                                  |
-| rows             |  full row snapshot                                               |
-| message          |  human readable description                                      |
-| phase            |  method name                                                     |
-| dropped_rows     |  dictionary of dropped row info                                  |
-| details          |  dictionary holding detail info from logging transformarion      |
-| comparison       |  dictionary that holds the dataframe comparison info             |
-|------------------|------------------------------------------------------------------|
-```
-Audit trail is chronological and complete
-
-    event: str = None,
-    phase: str = None,
-    action_type: str = None,
-    column: str = None,
-    row_indices: list = None,
-    unique_ids: list = None,
-    rows: list = None,
-    message: str = None,
-    dropped_rows: dict = None,
-    comparison: dict = None,
-    details: dict = None,
-
+Every transformation produces an audit event
+ - [Audit Trail System](audit_trail.md) — tracks all actions and row transformations
 
 # 11. Summary Structure
-The summary is dynamically populated throughout the cleaning process
+The process_summary is a dictionary dynamically populated throughout the cleaning process with counts of transformations and actions. 
 
 Example output
 ``` 

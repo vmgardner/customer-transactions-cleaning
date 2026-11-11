@@ -59,7 +59,8 @@ The src/ directory holds all executable Python modules that implement the cleani
 **- utilities.py** — shared helper functions and error handling support
 
 ### notebooks/
-Interactive Jupyter notebooks demonstrating the full workflow from raw data to modeling
+Interactive Jupyter notebooks demonstrate the full workflow from raw data to 
+a clean dataset and complet audit trail documentation
 
 **00_quickstart** - an intuitive and easy to use tool to run the pipeline demo  
 
@@ -68,9 +69,9 @@ Interactive Jupyter notebooks demonstrating the full workflow from raw data to m
 ### data/
 Structured data directories supporting reproducible experiments
 
-**raw/** — unmodified input datasets
+**raw/** — unmodified input data
 
-**cleaned/** — outputs from the cleaning pipeline
+**clean/** — output: cleaned, normalized, imputed data from the cleaning pipeline
 
 ### docs/
 Project documentation describing architecture, schema definitions, audit design, and workflow behavior

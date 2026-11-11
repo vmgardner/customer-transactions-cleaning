@@ -180,16 +180,15 @@ The pipeline follows a validate → clean → enrich → verify methodology.
 - product_category (using imputed region)
 
 ***Verify***
-- re‑validatio nof critical fields
-
 - generation of audit trail and process summary
+- dataframe comparison included in the audit trail
 
 ## Record Removal Rules
 Records are dropped when:
 
 - both region and product_category are missing
 
-- schema 'Required' is true and null value in data
+- schema 'required' is true and null value in data
 
 - timestamp is null
 

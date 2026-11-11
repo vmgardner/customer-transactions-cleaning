@@ -23,7 +23,7 @@ The environment includes:
 - Pandas, NumPy, scikit‑learn
 - PyArrow
 - JupyterLab + ipykernel
-- Category Encoders (pip)
+- •	Category Encoders (installed via pip)
 
 All versions are pinned for deterministic behavior.
 ***Kernel Registration***
@@ -72,15 +72,17 @@ Replace the 'output_filename' and 'output_path' with your own values.
 
 ### Run the pipeline normally
 ```
-conda activate customer-cleaning
-jupyter lab
+    00_quikstart.ipynb 
 ```
-Then run either 00_quikstart.ipynb or 01_cleaning_pipeline_demo.ipynb notebook:
+  or
+```
+     01_cleaning_pipeline_demo.ipynb
+```
 
 The pipeline allows you to:
 - loads the new CSV (df)
 - apply the updated schema
-- call the cleaner() passing in the new csv file
+- call the cleaner() passing in the new df file
     - cleaner.clean(df)
 - new audit artifacts will be automatically generated
 - timestamps everything to avoid overwriting previous runs
@@ -104,8 +106,6 @@ Artifacts are written to:
 ```
 audit_reports/
 ```
-
-
 
 ## Python Kernel State Behavior  
 VS Code and Jupyter maintain interpreter state across runs. This affects development:  
@@ -164,7 +164,7 @@ Minimal demonstration for GitHub users.
 
 Full walkthrough including:
 
-- schema loading
+- file loading
 - pipeline execution
 - audit inspection
 - artifact linking
@@ -193,7 +193,7 @@ Extend imputation handler:
 - update schema reference documentation
 
 ### Adding New Audit Event Types
-- Modify audit trail:  
+- update AuditTrail class  
 - add event category
 - add structured metadata
 - update Markdown summary generator
