@@ -1252,11 +1252,19 @@ class DataCleaner():
             # 3. Encode non-numeric (string/category)
             le_feat = LabelEncoder()
 
-            # Fit on training
-            X_train_encoded[feature] = le_feat.fit_transform(X_train[feature].astype(str))
+            # Convert categorical columns to object before fillna.
+            # Categorical dtypes may preserve pd.NA values that cause
+            # LabelEncoder to fail with mixed NAType/string inputs.
+            temp = X_train[feature].astype(object)
+            temp = temp.fillna("__MISSING__") 
+            temp = temp.astype(str)
+
+            X_train_encoded[feature] = le_feat.fit_transform(temp)
 
             # Transform missing
-            missing_vals = X_missing[feature].astype(str)
+            missing_vals = (X_missing[feature].astype(object).fillna("__MISSING__").astype(str))
+                
+            # missing_vals = X_missing[feature].astype(str)
             unseen_mask = ~missing_vals.isin(le_feat.classes_)
 
             if unseen_mask.any():
